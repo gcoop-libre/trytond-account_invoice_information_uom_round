@@ -25,7 +25,7 @@ class InvoiceLine:
     def on_change_info_quantity(self):
         if not self.product:
             return
-        qty = self.product.calc_quantity(self.info_quantity, self.unit)
+        qty = self.product.template.calc_quantity(self.info_quantity, self.unit)
         self.quantity = self.unit.round(qty, self.unit.rounding)
         self.amount = self.on_change_with_amount()
 
